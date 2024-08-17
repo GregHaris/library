@@ -8,18 +8,18 @@ let books = document.querySelector(".books");
 
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+  // Function to toggle the read status of a book
+  toggleRead() {
+    this.read = !this.read;
+  }
 }
-
-// Function to toggle the read status of a book
-Book.prototype.toggleRead = function() {
-  this.read = !this.read;
-};
-
 
 function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
@@ -46,7 +46,7 @@ function displayBooks() {
     pages.textContent = `Pages: ${book.pages}`;
 
     const read = document.createElement("p");
-    read.textContent = `Read: ${book.read ? 'Yes' : 'No'}`;
+    read.textContent = `Read: ${book.read ? "Yes" : "No"}`;
 
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Remove";
@@ -85,7 +85,6 @@ function displayBooks() {
   });
 }
 
-
 // Function to remove a book from the library
 function removeBookFromLibrary(index) {
   myLibrary.splice(index, 1);
@@ -97,7 +96,6 @@ function toggleReadStatus(index) {
   myLibrary[index].toggleRead();
   displayBooks();
 }
-
 
 // Event listener for the "Add Book" button
 addBookBtn.addEventListener("click", () => {
@@ -127,4 +125,3 @@ cancelBtn.addEventListener("click", () => {
 
 // Call the displayBooks function to show the books
 displayBooks();
-
