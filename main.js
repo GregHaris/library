@@ -21,6 +21,7 @@ class Book {
   }
 }
 
+// a function to add books to  the library
 function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
