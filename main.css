@@ -274,7 +274,7 @@ input {
 
 @media (min-width: 750px) {
   .container {
-    grid-template-rows: 100px 300px 3f;
+    grid-template-rows: 100px 300px 3fr;
   }
   .logo-container {
     padding: 2em 10em;
