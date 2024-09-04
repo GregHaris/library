@@ -1,9 +1,10 @@
 import "./styles.css";
 import cacheDOM from "./domUtils";
+import { validateForm } from "./validation";
 const { addBookBtn, newBookDialog, newBookForm, cancelBtn } = cacheDOM();
 let { books } = cacheDOM();
 
-let createLibrary = (() => {
+function createLibrary() {
   "use strict";
 
   const myLibrary = [];
@@ -126,4 +127,7 @@ let createLibrary = (() => {
 
   // Call the displayBooks function to show the books
   displayBooks();
-})();
+  validateForm();
+}
+
+createLibrary();
